@@ -18,6 +18,9 @@ Plugin 'itchyny/lightline.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" Backup
+set nobackup
+set nowritebackup
 
 set number
 syntax enable

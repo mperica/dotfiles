@@ -13,7 +13,7 @@ compinit
 #
 
 ## AWS Completer ###
-source /usr/local/aws/bin/aws_zsh_completer.sh
+#source /usr/local/aws/bin/aws_zsh_completer.sh
 
 
 ### ANTIGEN ####
