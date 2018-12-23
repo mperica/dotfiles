@@ -13,6 +13,9 @@ Plugin 'valloric/youcompleteme'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'itchyny/lightline.vim'
+Plugin 'rhysd/vim-crystal'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'szw/vim-maximizer'
 
 " Vundle END
 call vundle#end()            " required
@@ -21,14 +24,29 @@ filetype plugin indent on    " required
 " Backup
 set nobackup
 set nowritebackup
+set noswapfile
 
 set number
 syntax enable
 
+"cursorline
+set cursorline
+
+"show empty whitespace characters
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
 "colorscheme OceanicNext
 "colorscheme Monokai
-colorscheme onedark
+"colorscheme onedark
+"colorscheme matrix
 "colorscheme railscasts
+"colorscheme 256-grayvim
+colorscheme vimgnome
 
 " On pressing tab, insert 2 spaces
 set expandtab
@@ -53,7 +71,7 @@ nnoremap <S-Tab> :bprevious<CR>
 set paste
 
 " nerdtree
-nmap <silent> <F2> :NERDTreeToggle<CR>
+nmap <silent> <F1> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
 
 set laststatus=2
@@ -74,11 +92,13 @@ let g:lightline = {
 let skip_defaults_vim=1
 set viminfo=""
 
+" KEYMAP "
 " resize Vsplit
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
 
 
 

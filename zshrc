@@ -5,10 +5,10 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/martin/.zshrc'
+#zstyle :compinstall filename '~/.zshrc'
 
-autoload -Uz compinit
-compinit
+#autoload -Uz compinit
+#compinit
 # End of lines added by compinstall
 #
 
@@ -18,25 +18,25 @@ compinit
 
 ### ANTIGEN ####
 #
-source .antigen.zsh
+source ~/.antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
-antigen bundle heroku
+#antigen bundle heroku
 antigen bundle pip
-antigen bundle lein
-antigen bundle command-not-found
+#antigen bundle lein
 antigen bundle zsh-users/zsh-completions
-antigen bundle ssh-agent
+#antigen bundle ssh-agent
+antigen bundle twang817/zsh-ssh-agent
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Plugins
-#plugins=(git ssh-agent)
+plugins=(git ssh-agent)
 
 # Load the theme.
 #antigen theme robbyrussell
@@ -56,4 +56,9 @@ export PATH=~/.local/bin:$PATH
 export TERM=rxvt-unicode
 export VISUAL="vim"
 
-neofetch
+
+#ssh-add ~/.ssh/*.pem &>/dev/null
+
+#neofetch
+screenfetch
+
