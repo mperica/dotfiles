@@ -56,8 +56,11 @@ export PATH=~/.local/bin:$PATH
 export TERM=rxvt-unicode
 export VISUAL="vim"
 
+# ALLIAS
+alias spotify='flatpak run com.spotify.Client --force-device-scale-factor=2'
+#
 
-#ssh-add ~/.ssh/*.pem &>/dev/null
+ssh-add ~/.ssh/*.pem &>/dev/null
 
 #neofetch
 screenfetch

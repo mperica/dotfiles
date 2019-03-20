@@ -1,6 +1,7 @@
 #!/bin/bash
 EXTERNAL_OUTPUT="HDMI1"
 INTERNAL_OUTPUT="eDP1"
+SCALE="0.60"
 
 # if we don't have a file, start at zero
 if [ ! -f "/tmp/monitor_mode.dat" ] ; then
@@ -16,12 +17,12 @@ if [ $monitor_mode = "all" ]; then
         xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --auto
 elif [ $monitor_mode = "EXTERNAL" ]; then
         monitor_mode="INTERNAL"
-        xrandr --output $INTERNAL_OUTPUT --scale 0.50x0.50 --auto --output $EXTERNAL_OUTPUT --off
+        xrandr --output $INTERNAL_OUTPUT --scale $SCALEx$SCALE --auto --output $EXTERNAL_OUTPUT --off
 elif [ $monitor_mode = "INTERNAL" ]; then
         monitor_mode="CLONES"
-        xrandr --output $INTERNAL_OUTPUT --scale 0.50x0.50 --auto --output $EXTERNAL_OUTPUT --auto --same-as $INTERNAL_OUTPUT
+        xrandr --output $INTERNAL_OUTPUT --scale $SCALEx$SCALE --auto --output $EXTERNAL_OUTPUT --auto --same-as $INTERNAL_OUTPUT
 else
         monitor_mode="all"
-        xrandr --output $INTERNAL_OUTPUT --scale 0.50x0.50 --auto --output $EXTERNAL_OUTPUT --auto --left-of $INTERNAL_OUTPUT
+        xrandr --output $INTERNAL_OUTPUT --scale $SCALEx$SCALE --auto --output $EXTERNAL_OUTPUT --auto --left-of $INTERNAL_OUTPUT
 fi
 echo "${monitor_mode}" > /tmp/monitor_mode.dat

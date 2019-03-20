@@ -1,9 +1,8 @@
 #!/bin/bash
 
 APP=light
-LEVEL=$(light -get | xargs printf "%.f")
-
-level=`lux -G`
+LEVEL=$(light | xargs printf "%.f")
+#LEVEL=$(xbacklight -get | xargs printf "%.f")
 
 case "$1" in
   "up")
@@ -19,7 +18,7 @@ case "$1" in
     ;;
 esac
 
-LEVEL=$(xbacklight -get | xargs printf "%.f")
+
 # notification
 volnoti-show -s /usr/share/pixmaps/volnoti/display-brightness-symbolic.svg $LEVEL
 notify-send "${level}"
